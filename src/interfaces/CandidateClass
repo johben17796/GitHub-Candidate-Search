@@ -1,13 +1,4 @@
-
-// TODO: Create an interface for the Candidate objects returned by the API
-export default interface Candidate {
-    name: string;
-    username: string;
-    location: string | null;
-    avatar: string;
-    email: string | null;
-    html_url: string;
-    company: string | null;
+class goodCandidate extends Candidate {    
     addCandidate(usedCandidate: Candidate): void  {
         let firstCandidates = localStorage.getItem('candidates') || [];
         firstCandidates.push(usedCandidate);
@@ -18,5 +9,4 @@ export default interface Candidate {
         firstCandidates.filter(usedCandidate);
         localStorage.setItem('candidates', JSON.stringify(firstCandidates));
    }
-};
-
+}
