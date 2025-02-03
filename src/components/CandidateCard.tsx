@@ -1,5 +1,5 @@
 import Candidate from "../interfaces/Candidate.interface";
-
+import Button from "./Button";
 
 function renderSingleCandidate(renderee: Candidate) {
   const name = renderee.name;
@@ -32,6 +32,7 @@ function renderSingleCandidate(renderee: Candidate) {
             {html_url}
           </ul>
         </section>
+        <Button />
       </div>
     </>
   )

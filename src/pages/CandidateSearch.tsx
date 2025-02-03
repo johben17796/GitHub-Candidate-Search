@@ -1,12 +1,12 @@
-// 
-
 import { useState } from 'react';
 import { searchGithubUser } from '../api/API';
 import Candidate from '../interfaces/Candidate.interface';
+import renderCandidateCard from '../components/CandidateCard';
 
 const CandidateSearch = () => {
+
   const [username, setUsername] = useState('');
-  const [candidate, setCandidate] = useState<Candidate | null>(null); 
+  const [candidates, setCandidates] = useState<Candidate[]>([]); // Keep it as an array
 
   const searchBar = () => {
     return (
@@ -32,7 +32,7 @@ const CandidateSearch = () => {
       company: userData.company,
     };
     console.log(candidateData);
-    setCandidate(candidateData); // Update candidate state
+    setCandidates((prevCandidates) => [...prevCandidates, candidateData]);
   };
 
   return (
@@ -40,19 +40,9 @@ const CandidateSearch = () => {
       <h1>Candidate Search</h1>
       <h2>Search By Username</h2>
       {searchBar()}
-
-      {candidate && ( // Render candidate data if available
-        <div>
-          <img src={candidate.avatar} alt={`${candidate.name}'s avatar`} />
-          <p>{candidate.name}: {candidate.username}</p>
-          <p>{candidate.email}</p>
-          <p>{candidate.html_url}</p>
-          <p>{candidate.location}</p>
-          <p>{candidate.company}</p>
-        </div>
-      )}
+      {candidates.length > 0 && renderCandidateCard([candidates[0]])}
     </>
   );
 };
 
-export default CandidateSearch
+export default CandidateSearch;
