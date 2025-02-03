@@ -1,12 +1,25 @@
-class goodCandidate extends Candidate {    
-    addCandidate(usedCandidate: Candidate): void  {
-        let firstCandidates = localStorage.getItem('candidates') || [];
+import Candidate from './Candidate.interface.js'
+
+class goodCandidate implements Candidate {    
+    name: string;
+    username: string;
+    location: string | null;
+    avatar: string;
+    email: string | null;
+    html_url: string;
+    company: string | null;
+    addCandidate(usedCandidate: Candidate): void {
+        let firstCandidates = JSON.parse(localStorage.getItem('candidates') || '[]');
         firstCandidates.push(usedCandidate);
         localStorage.setItem('candidates', JSON.stringify(firstCandidates));
     }
-   deleteCandidate(usedCandidate: Candidate) {
-    let firstCandidates = localStorage.getItem('candidates') || [];
-        firstCandidates.filter(usedCandidate);
+
+    deleteCandidate(usedCandidate: Candidate): void {
+        let firstCandidates = JSON.parse(localStorage.getItem('candidates') || '[]');
+        firstCandidates = firstCandidates.filter(candidate => candidate.username !== usedCandidate.username);
         localStorage.setItem('candidates', JSON.stringify(firstCandidates));
-   }
+    }
 }
+
+
+export default goodCandidate;

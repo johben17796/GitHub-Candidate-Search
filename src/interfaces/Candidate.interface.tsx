@@ -8,15 +8,8 @@ export default interface Candidate {
     email: string | null;
     html_url: string;
     company: string | null;
-    addCandidate(usedCandidate: Candidate): void  {
-        let firstCandidates = localStorage.getItem('candidates') || [];
-        firstCandidates.push(usedCandidate);
-        localStorage.setItem('candidates', JSON.stringify(firstCandidates));
-    }
-   deleteCandidate(usedCandidate: Candidate) {
-    let firstCandidates = localStorage.getItem('candidates') || [];
-        firstCandidates.filter(usedCandidate);
-        localStorage.setItem('candidates', JSON.stringify(firstCandidates));
-   }
+//     addCandidate(usedCandidate: Candidate): void
+    
+//    deleteCandidate(usedCandidate: Candidate): void
 };
 
