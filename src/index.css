@@ -127,3 +127,9 @@ tbody tr:nth-child(odd) {
 .minus {
   background-color: red;
 }
+
+.search {
+  color: grey;
+  background-color: #333333;
+  border: #535bf2;
+}

@@ -41,11 +41,11 @@ const CandidateSearch = () => {
       const savedCandidates = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
       savedCandidates.push(chosenCandidate); // Add the new candidate
       localStorage.setItem('savedCandidates', JSON.stringify(savedCandidates));
-    }
+    }}
     const handleSkip = () => {
       searchGithubUser("")
-  };
-  
+    };
+ 
   return (
     <>
       <h1>Candidate Search</h1>
@@ -57,5 +57,5 @@ const CandidateSearch = () => {
     </>
   );
 };
-}
+
 export default CandidateSearch;
