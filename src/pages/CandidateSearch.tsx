@@ -10,17 +10,6 @@ const CandidateSearch = () => {
   const [chosenCandidate, setChosenCandidate]=useState<Candidate | null>(null)
   
   
-  const searchBar = () => {
-    return (
-      <>
-        <input
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          />
-        <button onClick={userSearch}>Search</button>
-      </>
-    );
-  };
 
   const userSearch = async () => {
     const userData = await searchGithubUser(username);
@@ -50,7 +39,11 @@ const CandidateSearch = () => {
     <>
       <h1>Candidate Search</h1>
       <h2>Search By Username</h2>
-      <button onClick={searchBar} className="plus">Search</button>
+      <input
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          />
+      <button onClick={userSearch} className="search">Search</button>
       <p>{chosenCandidate && renderSingleCandidate(chosenCandidate)}</p>
       <button onClick={handleAdd} className="plus">+</button>
       <button onClick={handleSkip} className="minus">-</button>
