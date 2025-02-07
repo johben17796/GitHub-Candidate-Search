@@ -118,3 +118,12 @@ tbody tr:nth-child(odd) {
   width: 80vw;
   table-layout: fixed;
 }
+
+.plus {
+  background-color: green;
+  color:white
+}
+
+.minus {
+  background-color: red;
+}

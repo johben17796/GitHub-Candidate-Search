@@ -1,5 +1,4 @@
 import Candidate from "../interfaces/Candidate.interface";
-import Button from "../components/Button";
 
 const SavedCandidates = () => {
  function displayCandidates() {
@@ -18,7 +17,6 @@ const SavedCandidates = () => {
       <p>{newArray[i].html_url}</p>
       <p>{newArray[i].location}</p>
       <p>{newArray[i].company}</p>
-      <Button />
       </div>
       </>
       )

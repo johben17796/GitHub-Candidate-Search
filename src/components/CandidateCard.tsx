@@ -1,7 +1,7 @@
 import Candidate from "../interfaces/Candidate.interface";
-import Button from "./Button";
 
-function renderSingleCandidate(renderee: Candidate) {
+
+export function renderSingleCandidate(renderee: Candidate) {
   const name = renderee.name;
   const username = renderee.username;
   const location = renderee.location;
@@ -13,36 +13,34 @@ function renderSingleCandidate(renderee: Candidate) {
     <>
       <div>
         <div>
-          {avatar}
+          <img src={avatar} alt={`${name}'s avatar`} />
         </div>
-        <div>
+        <p>
           {name}
           {username}
-        </div>
+        </p>
         <section>
-          {location}
-          {company}
+          Location: {location}
+          Company: {company}
         </section>
         <section>
           Contact: 
           <ul>
-          {email}
+          Email: {email}
           </ul>
           <ul>
-            {html_url}
+          Github:  {html_url}
           </ul>
         </section>
-        <Button />
       </div>
     </>
   )
 };
-function renderCandidateCard(candidateArray: [Candidate]) {
-  const listArray = [];
-  for (let i = 0; i < candidateArray.length; i++) {
-    const newCandidate = renderSingleCandidate(candidateArray[i]);
-    listArray.push(newCandidate);
-    }  
-  return listArray;
-  }
-export default renderCandidateCard;
+// export function renderCandidateCard(candidateArray: [Candidate]) {
+//   const listArray = [];
+//   for (let i = 0; i < candidateArray.length; i++) {
+//     const newCandidate = renderSingleCandidate(candidateArray[i]);
+//     listArray.push(newCandidate);
+//     }  
+//   return listArray;
+//   }
