@@ -22,9 +22,7 @@ const CandidateSearch = () => {
       html_url: userData.html_url,
       company: userData.company || 'N/A',
     });
-    console.log(chosenCandidate); 
-    
-  };
+  }
   const handleAdd = () => {
     if (chosenCandidate) {
       const savedCandidates = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
@@ -32,7 +30,7 @@ const CandidateSearch = () => {
       localStorage.setItem('savedCandidates', JSON.stringify(savedCandidates));
     }}
     const handleSkip = () => {
-      searchGithubUser("")
+      searchGithubUser("johben17796")
     };
  
   return (
@@ -44,7 +42,7 @@ const CandidateSearch = () => {
           onChange={(e) => setUsername(e.target.value)}
           />
       <button onClick={userSearch} className="search">Search</button>
-      <p>{chosenCandidate && renderSingleCandidate(chosenCandidate)}</p>
+      <div>{chosenCandidate && renderSingleCandidate(chosenCandidate)}</div>
       <button onClick={handleAdd} className="plus">+</button>
       <button onClick={handleSkip} className="minus">-</button>
     </>

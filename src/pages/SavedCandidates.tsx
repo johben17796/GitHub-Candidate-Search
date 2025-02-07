@@ -1,44 +1,56 @@
-import Candidate from "../interfaces/Candidate.interface";
+
+import { useState, useEffect } from 'react';
 
 const SavedCandidates = () => {
- function displayCandidates() {
-  const candidateArray = localStorage.getItem('candidates');
-  console.log(candidateArray)
-  if (candidateArray && candidateArray.length > 0) {
-    const newArray: Candidate[] = JSON.parse(candidateArray)
+  const [savedCandidates, setSavedCandidates] = useState<any[]>([]);
 
-    for (let i = 0; i < newArray.length; i++) {
-      return (
-      <>
-      <div>
-      <img src={newArray[i].avatar}></img>
-      <p>{newArray[i].name}: {newArray[i].username}</p>
-      <p>{newArray[i].email}</p>
-      <p>{newArray[i].html_url}</p>
-      <p>{newArray[i].location}</p>
-      <p>{newArray[i].company}</p>
-      </div>
-      </>
-      )
-    }
-  } else {
-    return (
-      <div>
-        <p>No candidates found</p>
-        </div>
-    )
-  }
- }
-  
-  
+  useEffect(() => {
+    const storedCandidates = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
+    setSavedCandidates(storedCandidates);
+  }, []);
+
+
   return (
-    <>
+    
+    <div>
       <h1>Potential Candidates</h1>
-      <div>
-        {displayCandidates()}
-      </div>
-    </>
+      {savedCandidates.length === 0 ? (
+        <p className="boxaroundit">No candidates saved.</p>
+      ) : (
+        <div>
+          {savedCandidates.map((candidate: any) => (
+            <div className="candidate">
+              <div>
+                <img className="boxaroundit" src={candidate.avatar} alt={`${candidate.name}'s avatar`} />
+              </div>
+              <div className="boxaroundit">
+                {candidate.name}
+              </div>
+              <p className="boxaroundit">
+                {candidate.username}
+              </p>
+              <section className="boxaroundit">
+                Location: {candidate.location}
+              </section>
+              <section className="boxaroundit">
+                Company: {candidate.company}
+              </section>
+              <section className="boxaroundit">
+                Contact:
+                <ul className="boxaroundit">
+                  Email: {candidate.email}
+                </ul>
+                <ul className="boxaroundit">
+                  Github:  {candidate.html_url}
+                </ul>
+              </section>
+            </div>))} 
+        </div>
+      )}
+    </div>
   );
-};
+}
 
 export default SavedCandidates;
+
+    

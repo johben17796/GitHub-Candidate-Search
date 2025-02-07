@@ -11,24 +11,28 @@ export function renderSingleCandidate(renderee: Candidate) {
   const company = renderee.company ;
   return (
     <>
-      <div>
+      <div className="candidate">
         <div>
-          <img src={avatar} alt={`${name}'s avatar`} />
+          <img className="boxaroundit" src={avatar} alt={`${name}'s avatar`} />
         </div>
-        <p>
+        <div className="boxaroundit">
           {name}
+        </div>
+        <p className="boxaroundit">
           {username}
         </p>
-        <section>
+        <section className="boxaroundit">
           Location: {location}
+          </section>
+        <section className="boxaroundit">
           Company: {company}
         </section>
-        <section>
+        <section className="boxaroundit">
           Contact: 
-          <ul>
+          <ul className="boxaroundit">
           Email: {email}
           </ul>
-          <ul>
+          <ul className="boxaroundit">
           Github:  {html_url}
           </ul>
         </section>

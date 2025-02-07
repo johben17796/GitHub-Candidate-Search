@@ -133,3 +133,15 @@ tbody tr:nth-child(odd) {
   background-color: #333333;
   border: #535bf2;
 }
+
+.candidate {
+  text-align: center;
+  align-content: center;
+  border: solid #000; border-width: 10px;
+}
+
+.boxaroundit {
+  border: solid #000; border-width: 5px;
+  text-align: center;
+  padding: 0
+}
