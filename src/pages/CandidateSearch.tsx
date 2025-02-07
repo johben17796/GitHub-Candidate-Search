@@ -30,7 +30,7 @@ const CandidateSearch = () => {
       localStorage.setItem('savedCandidates', JSON.stringify(savedCandidates));
     }}
     const handleSkip = () => {
-      searchGithubUser("johben17796")
+      searchGithubUser("johben17796") //just as a stopgap
     };
  
   return (
